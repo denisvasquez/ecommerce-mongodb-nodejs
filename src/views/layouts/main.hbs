@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" type="image/x-icon" href="/images/favicon.png" />
+	<link href="https://fonts.googleapis.com/css2?family=Baloo+2&family=Indie+Flower&family=Merienda&family=Patrick+Hand&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+	<title>Inventario 1</title>
+</head>
+<body>
+
+	{{>navigation}}
+
+	{{{body}}}
+
+	{{#if user}}
+		<div class="c-button-r">
+			<button onclick="location.href='/register'" class="btn-register">
+				<i class="fas fa-shopping-basket"></i>
+			</button>
+		</div>
+	{{/if}}
+</body>
+<script src="https://kit.fontawesome.com/7e5b2d153f.js" crossorigin="anonymous"></script>
+</html>

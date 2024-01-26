@@ -1,0 +1,146 @@
+<style>
+	.container {
+		margin: 0 auto;
+		margin-top: 100px;
+	}
+	.card	{
+		box-sizing: border-box;
+		background: ghostwhite;
+		width: 450px;
+		text-align: center;
+		margin: 0 auto;
+		padding: 15px;
+		border-radius: 4px;
+	}
+	.card-body{
+		display: flex;
+		justify-content: center;
+	}
+	table {
+	  table-layout: fixed;
+	  width: 100%;
+	}
+	@media screen and (max-width: 768px) {
+		.card {
+			width: 275px;
+		}
+	}
+	.btn {
+		border:  none;
+		padding: 10px 20px;
+		background: #0f0f0f;
+		color: white;
+		border-radius: 4px;
+		transition: 0.2s;
+		margin: 10px;
+	}
+	.btn:hover {
+		box-shadow: 0 0 5px #0089ff;
+		background: #0089ff;
+		transition-delay: 0.2s;
+		cursor: pointer;
+	}
+	.alert {
+		background: rgba(0, 235, 0, 0.1);
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		box-sizing: border-box;
+		padding: 15px;
+		margin: 15px;
+		border-radius: 4px;
+		border: 1px solid green;
+		color: white;
+	}
+	.alert.d-none {
+		display: none;
+	}
+	.exit {
+		border: none;
+		background: transparent;
+		color: green;
+	}
+	.exit:hover {
+		cursor: pointer;
+	}
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<div class="container">
+	<div class="alert" id="alert">
+		<div style="display: flex; align-items: center;">
+			<div><p>Puedes descargar tu factura y luego continuar o bien puedes solo continuar</p></div>
+		</div>
+		<button class="exit" id="button">
+			<i class="fas fa-times"></i>
+		</button>
+	</div>
+	<div class="sub-container">
+		<div class="card">
+			<div style="text-align: center;" id="card">
+				<div class="card-title">
+					<h2>Esperamos que su experiencia en esta plataforma haya sido de su agrado</h2>
+					<h2>Usuario: {{{newFacture.name}}}</h2>
+					<p style="margin-top: 5px;">Monto a pagar: Q.{{newFacture.mount}}.00</p>
+				</div>
+				<div class="card-body">
+					<table>
+						<thead>
+							<tr>
+								<th scope="col">Cantidad</th>
+								<th scope="col">Nombre</th>
+								<th scope="col">Precio</th>
+								<th scope="col">Total</th>
+							</tr>
+						</thead>
+						<tbody>
+						{{#each result}}
+							<tr>
+								<th scope="row">{{amountProducts}}</th>
+								<td>{{product}}</td>
+								<td>{{priceProduct}}</td>
+								<td>{{mountTotal}}</td>
+							</tr>
+						{{/each}}
+							<tr>
+								<th scope="row"></th>
+								<td></td>
+								<td></td>
+								<td>{{newFacture.mount}}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div>
+				<button class="btn" id="pdf">
+					Descargar factura
+				</button>
+				<button class="btn" onclick="location.href='/generate'">
+					Continuar
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+	
+	document.getElementById('button')
+	.onclick = () => {
+		document.getElementById('alert').classList.add('d-none')
+	}
+
+	const bttn = document.getElementById('pdf');
+	bttn.onclick  = () => {
+		let invoice = this.document.getElementById('card');
+
+		var opt = {
+		  margin:       1,
+		  filename:     'facture.pdf',
+		  image:        { type: 'jpeg', quality: 0.98 },
+		  html2canvas:  { scale: 2 },
+		  jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+		};
+		html2pdf().from(invoice).set(opt).save();
+
+	}
+</script>

@@ -1,0 +1,26 @@
+<link rel="stylesheet" href="/css/comments.css">
+<div class="container">
+	<div class="side-1">
+		<form action="/public/comment" method="POST">
+			<div>
+				<textarea class="desc" name="description" rows="10" placeholder="Comentario" required="" autofocus=""></textarea>
+			</div>
+			<div>
+				<button class="submit">Comentar</button>
+			</div>
+		</form>
+	</div>
+	<div class="side-2">
+		{{#each result}}
+			<div class="card">
+				<div class="title">
+					<h3>{{name}}</h3>
+					<p>{{timeago timeAgo}}</p>
+				</div>
+				<div style="word-wrap: break-word;" class="description">
+					{{description}}
+				</div>
+			</div>
+		{{/each}}
+	</div>
+</div>

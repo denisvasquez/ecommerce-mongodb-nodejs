@@ -1,0 +1,17 @@
+<link rel="stylesheet" href="/css/viewCommentsAdmin.css">
+<div class="container">
+	{{#each result}}
+		<div class="card">
+			<div class="title">
+				<h3>{{name}}</h3>
+				<p>{{timeago timeAgo}}</p>
+			</div>
+			<div class="description">
+				<p>{{description}}</p>
+			</div>
+			<div>
+				<button onclick="location.href='/api/comments/{{id}}'">Eliminar</button>
+			</div>
+		</div>
+	{{/each}}
+</div>

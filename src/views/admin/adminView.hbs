@@ -1,0 +1,31 @@
+<link rel="stylesheet" href="/css/admin.css">
+<div class="container">
+  <div>
+      <div>
+          <button onclick="location.href='/api/administration'" class="add">Añadir nuevo producto</button>
+      </div>
+      <div class="content-cards">
+        {{#each result}}
+        <div class="card">
+          <div class="card-title">
+              <h2>{{name}}</h2>
+          </div>
+          <div class="card-body">
+                    <p><strong>Vendedor:</strong> {{name_Person}}</p>
+                    <p><strong>Codigo:</strong> {{code}}</p>
+                    <p><strong>Precio:</strong> {{price}}</p>
+                    <p><strong>Categoria:</strong> {{category}}</p>
+                    <p><strong>Fecha de ingreso:</strong> {{dateInside}}</p> <p><strong>Medida de unidad:</strong> {{unit}}</p>
+                    <p><strong>Cantidad:</strong> {{amount}}</p>
+                    <p><strong>Monto Estimado:</strong> {{mount}}</p>
+                    <div class="btns">
+                            <button class="link remove" onclick="location.href='/api/product/{{code}}'">Delete</button>
+                            <button class="link update" onclick="location.href='/api/product/edith/{{code}}'">Edith</button>
+                    </div>
+            </div>
+          </div>
+      {{/each}}
+
+      </div>
+  </div>
+</div>

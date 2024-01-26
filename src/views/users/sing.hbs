@@ -1,0 +1,26 @@
+<link rel="stylesheet" href="/css/login-singin.css">
+<div class="container">
+	<div class="sub-container">
+	{{#if singUpMessage}}
+		<div class="alert">
+			<p>{{singUpMessage}}</p>
+		</div>
+	{{/if}}
+		<form class="animate__animated animate__fadeInUp" action="/singup" method="POST">
+			<h2>Registrate</h2>
+			<div>
+				<input type="text" name="userName" placeholder="Nombre de usuario" autofocus="">
+			</div>
+			<div class="wrapp-input">
+					<input id="password" type="password" name="password" placeholder="Contraceña">
+						<span id="reveal">
+							<i id="eye" class="fas fa-eye"></i>
+						</span>
+				</div>
+			<div>
+				<button class="submit">Registrarme</button>
+			</div>
+			<a href="/login">¿Ya tienes una cuenta?</a>
+		</form>
+	</div>
+</div><script src="/js/revealPassword.js"></script>

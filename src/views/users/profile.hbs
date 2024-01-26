@@ -1,0 +1,40 @@
+<link rel="stylesheet" href="/css/profile.css">
+<div class="container">
+	<div>
+		<button onclick="location.href='/edith/myprofile'" class="edith-profile">
+			Editar Perfil
+		</button>
+	</div>
+	{{#if alert}}
+		<div class="alert">
+			<div style="display: flex; align-items: center;">
+				<div style="margin-right: 5px; color: green;"><i class="fas fa-check"></i></div>
+				<div><p>{{alert}}</p></div>
+			</div>
+			<button class="exit" onclick="location.href='/profile'">
+				<i class="fas fa-times"></i>
+			</button>
+		</div>
+	{{/if}}
+	{{#if result}}
+		<div class="sub-container">
+			{{#each result}}
+				<div class="card">
+					<div style="display: flex; justify-content: space-between;" class="card-title">
+						<h3>{{nameProduct}}</h3>
+						<p>{{timeago timeAgo}}</p>
+					</div>
+					<div class="card-body">
+						<p>Productos comprados: {{amount}}</p>
+						<p>Precio: {{priceProduct}}</p>
+						<p>Pago: {{pay}}</p>
+					</div>
+				</div>
+			{{/each}}
+		</div>
+	{{else}}
+	<div style=" margin: 10px;color: gray; text-align: center;" class="text">
+		<h2>Aqui se guardaran todos los registros de compras que realizes</h2>
+	</div>
+	{{/if}}
+</div>

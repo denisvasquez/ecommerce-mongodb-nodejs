@@ -1,0 +1,40 @@
+<link rel="stylesheet" href="/css/preview.css">
+<div class="container">
+	{{#if alert}}
+		<div class="alert">
+			<p>{{alert}}</p>
+		</div>
+	{{/if}}
+	<form class="animate__animated animate__zoomInUp" action="/register/{{result.id}}" method="POST" id="form">
+		<div>
+			<p>Usuario: </p>
+			<input type="text" name="nameUser" value="{{{user.email}}}" readonly="">
+		</div>
+		<div>
+			<p>Nombre del producto: </p>
+			<input type="text" name="nameProduct" value="{{{result.name}}}" readonly="">
+		</div>
+		<div>
+			<p>Precio del producto: </p>
+			<input type="text" name="priceProduct" id="price" value="{{{result.price}}}" readonly="">
+		</div>
+		<div>
+			<p>Cantidad a comprar: </p>
+			<input type="number" name="amount" value="1" id="amount" placeholder="Cantidad" autofocus="">
+		</div>
+		<div>
+			<p>Total a pagar: </p>
+			<input type="number" name="mount" value="{{{result.price}}}" id="mount" readonly="" placeholder="Monto">
+		</div>
+		<div>
+			<button class="submit">
+				Añadir
+			</button>
+		</div>
+	</form>
+</div>
+<script>
+	document.getElementById('amount').addEventListener('change', () => {
+		document.getElementById('mount').value = Number(document.getElementById('amount').value) * Number(document.getElementById('price').value);
+	});
+</script>

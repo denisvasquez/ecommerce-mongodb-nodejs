@@ -1,0 +1,20 @@
+<link rel="stylesheet" href="/css/buyUsers.css">
+<div class="container">
+	{{#each result}}
+		<div class="card">
+			<div class="card-title">
+				<h2>{{name}}</h2>
+			</div>
+			<div class="card-body">
+				<p><strong>Precio:</strong> {{price}}</p>
+				<p><strong>Categoria:</strong> {{category}}</p>
+				<p><strong>Medida de unidad:</strong>  {{unit}}</p>
+			</div>
+			<div class="d-button">
+				<button class="preview" onclick="location.href='/preview/{{id}}/'">
+					Ver
+				</button>
+			</div>
+		</div>
+	{{/each}}
+</div>

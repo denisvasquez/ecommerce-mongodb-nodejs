@@ -1,0 +1,16 @@
+<link rel="stylesheet" href="/css/user.css">
+<div class="container">
+	<div class="card">
+		<h1>Inventario en linea</h1>
+		<h3><i>Has tus compras ahora!</i></h3>
+		{{#if user}}
+		<button class="get-started" onclick="location.href='/buy'">
+			Iniciar ahora
+		</button>
+		{{else}}
+		<button class="get-started" onclick="location.href='/login'">
+			Iniciar ahora
+		</button>
+		{{/if}}
+	</div>
+</div>

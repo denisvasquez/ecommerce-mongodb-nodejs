@@ -1,0 +1,151 @@
+
+.container {
+	width: 95%;
+	display: flex;
+	align-items: center;
+	padding: 15px 15px;
+	box-sizing: border-box;
+	margin: 50px auto;
+}
+.content-cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.card	{
+	color: black;
+	text-decoration: none;
+	letter-spacing: 1px;
+	width: 300px;
+	background: #f4f4f4;
+	margin: 10px;
+	border-radius: 3px;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+	overflow: hidden;
+}
+.card-title {
+	background: #bbbbbb;
+	padding: 15px;
+}
+.card-body {
+	padding: 15px;
+}
+.btns {
+	display: flex;
+	justify-content: space-between;
+}
+.link {
+	width: 50%;
+	margin: 6px;
+	padding: 10px;
+	border: none;
+	border-radius: 5px;
+	color: white;
+}
+.link.remove {
+	background: #ce2100;
+}
+.link.remove:hover {
+	background: #bb2100;
+	cursor: pointer;
+}
+.link.update {
+	background: #0089ff;
+}
+.link.update:hover {
+	background: #006aff;
+	cursor: pointer;
+}
+.add {
+  background: transparent;
+  border: none;
+  padding: 10px 20px;
+  border: 1px solid #0089ff;
+  color: #0089ff;
+  border-radius: 4px;
+  transition: 0.2s;
+}
+.add:hover {
+  cursor: pointer;
+  background: #0089ff;
+  color: white;
+  box-shadow: 0 0 10px #0089ff;
+  transition-delay: 0.2s;
+}
+.cont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.view {
+  background: transparent;
+  border: none;
+  color: #0089ff;
+  border: 1px solid #0089ff;
+  padding: 10px 20px;
+  border-radius: 4px;
+  margin: 15px 0px;
+  transition: 0.2s;
+}
+.view:hover {
+  cursor: pointer;
+  background: #0089ff;
+  color: white;
+  box-shadow: 0 0 10px #0089ff;
+  transition-delay: 0.2s;
+}
+.container-form {
+	width: 470px;
+	background: white;
+	padding: 15px 15px;
+	text-align: center;
+	border-radius: 5px;
+}
+.container-form div	{
+	width: 90%;
+	margin: 0 auto;
+}
+
+.container-form div .entry {
+	background: rgba(220, 220, 220); 
+	width: 99%;
+	margin: 10px 0;
+	height: 45px;
+	border-radius: 3px;
+	border: none;
+	box-sizing: border-box;
+	padding: 0 15px;
+	transition: 0.2s;
+}
+
+.container-form div .entry:focus {
+	outline: none;
+	border: none;
+	box-shadow: 0 0 10px #0089ff;
+	transition-delay: 0.3s;
+}
+.button-save {
+	border: none;
+	padding: 10px 0;
+	margin: 5px;
+	border-radius: 5px;
+	background: transparent;
+	letter-spacing: 2px;
+	color: #0089ff;
+	border: 1px solid #0089ff;
+	width: 40%;
+	transition: 0.2s;
+}
+.button-save:hover {
+	background: #0089ff;
+	box-shadow: 0 0 10px #0089ff;
+	color: white;
+	cursor: pointer;
+	transition-delay: 0.2s;
+}
+@media screen and (max-width: 780px) {
+	.container-form {
+		width: 300px;
+	}
+}

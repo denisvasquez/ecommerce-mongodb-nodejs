@@ -1,0 +1,24 @@
+<link rel="stylesheet" href="/css/admin.css">
+<div class="container-form">
+	<form action="/api/product/edith/{{result.code}}" method="POST" id="form">
+		<div>
+			<input class="entry" type="text" name="name_Person" placeholder="Nombre del vendedor" required="" value="{{result.name_Person}}">
+			<input class="entry" type="text" name="name" placeholder="Nombre del producto" required="" value="{{result.name}}">
+			<input class="entry" type="Number" name="price" placeholder="Precio" required="" value="{{result.price}}">
+			<input class="entry" type="text" name="unit" list="units" placeholder="Medida de unidad" required="" value="{{result.unit}}">
+			<datalist id="units">
+				<option value="Unidad"></option>
+				<option value="Docena"></option>
+			</datalist>
+			<input class="entry" type="text" name="category" list="categorys" placeholder="Categoria" required="" value="{{result.category}}">
+			<datalist id="categorys">
+				<option value="Bebidas"></option>
+				<option value="Aperitivo"></option>
+				<option value="Frutas y verduras"></option>
+				<option value="Electrodomestico"></option>
+			</datalist>
+			<input class="entry" type="Number" name="amount" placeholder="Cantidad de productos" required="" value="{{result.amount}}">
+		</div>
+		<button class="button-save">Save</button>
+	</form>
+</div>

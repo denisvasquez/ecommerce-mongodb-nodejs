@@ -1,0 +1,116 @@
+<style>
+	.container {
+		height: 100vh;
+		width: 100vw;
+		display: flex;
+		align-items: center;
+	}
+	.sub-container {
+		width: 100%;
+	}
+	.container form {
+		text-align: center;
+		width: 30%;
+		box-sizing: border-box;
+		margin: auto;
+		padding: 15px;
+		background: rgb(255, 255, 255);
+		border-radius: 5px;
+	}
+	.container form div {
+		margin: 10px auto;
+		width: 75%;
+	}
+	.container form div input{
+		width: 100%;
+		height: 40px;
+		box-sizing: border-box;
+		background: rgb(220, 220, 220);
+		padding: 0 15px;
+		border-radius: 4px;
+		border: none;
+		transition: 0.2s;
+	}
+	.container form div input:focus {
+		outline: none;
+		box-shadow: 0 0 10px #0089ff;
+		transition-delay: 0.2s;
+	}
+	.submit {
+		padding: 10px 25px;
+		border: none;
+		background: transparent;
+		border: 1px solid #0089ff;
+		color: #0089ff;
+		border-radius: 4px;
+		transition: 0.2s;
+	}
+	.submit:hover {
+		background: #0089ff;
+		color: white;
+		box-shadow: 0 0 10px #0089ff;
+		cursor: pointer;
+		transition-delay: 0.2s;
+	}
+	.container .alert {
+		background: rgba(235, 0, 0, 0.5);
+		width: 80%;
+		display: flex;
+		align-items: center;
+		box-sizing: border-box;
+		padding: 15px;
+		border-radius: 4px;
+		border: 1px solid red;
+		color: white;
+		margin: 15px auto;
+	}
+	.wrapp-input {
+		position: relative;
+	}
+	#reveal {
+		position: absolute;
+		right: 10px;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+	#reveal:hover {
+		cursor: pointer;
+	}
+	@media screen and (max-width: 768px) {
+		.container form {
+			width: 70%;
+		}
+	}
+</style>
+<div class="container">
+	<div class="sub-container">
+		{{#if edithError}}
+		<div class="alert">
+			<p>{{edithError}}</p>
+		</div>
+		{{/if}}
+		{{#if alert}}
+			<div class="alert">
+				<p>{{alert}}</p>
+			</div>
+		{{/if}}
+		<form class="animate__animated animate__fadeInUp" action="/edith/myprofile" method="POST">
+			<div>
+				<input type="text" name="userName" value="{{user.email}}" readonly="">
+			</div>
+			<div>
+				<input type="text" name="newEmail" placeholder="Nuevo usuario" autofocus="">
+			</div>
+			<div class="wrapp-input">
+				<input id="password" type="password" name="password" placeholder="Contraceña">
+					<span id="reveal">
+						<i id="eye" class="fas fa-eye"></i>
+					</span>
+			</div>
+			<div>
+				<button style="cursor: pointer;" class="submit">Editar perfil</button>
+			</div>
+		</form>
+	</div>
+</div>
+<script src="/js/revealPassword.js"></script>
